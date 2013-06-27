@@ -595,6 +595,11 @@ typedef struct {
      * sent in the CertificateRequest message: */
     const char  *ca_name_path;
     const char  *ca_name_file;
+
+#ifndef OPENSSL_NO_TLSEXT
+    /** Extensions to be returned if clients request them */
+    const char *serverinfo_file;
+#endif
 } modssl_pk_server_t;
 
 typedef struct {
@@ -824,6 +829,10 @@ const char *ssl_cmd_SSLSRPUnknownUserSeed(cmd_parms *cmd, void *dcfg, const char
 #endif
 
 const char *ssl_cmd_SSLFIPS(cmd_parms *cmd, void *dcfg, int flag);
+
+#ifndef OPENSSL_NO_TLSEXT
+const char  *ssl_cmd_SSLServerInfoFile(cmd_parms *, void *, const char *);
+#endif
 
 /**  module initialization  */
 int          ssl_init_Module(apr_pool_t *, apr_pool_t *, apr_pool_t *, server_rec *);
