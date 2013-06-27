@@ -152,6 +152,11 @@ static const command_rec ssl_config_cmds[] = {
                 "Set user name to SSL variable value")
     SSL_CMD_SRV(StrictSNIVHostCheck, FLAG,
                 "Strict SNI virtual host checking")
+#ifndef OPENSSL_NO_TLSEXT
+    SSL_CMD_SRV(ServerInfoFile, TAKE1,
+                "ServerInfo file "
+                "(`/path/to/file' - PEM encoded Extensions)")
+#endif
 
 #ifndef OPENSSL_NO_SRP
     SSL_CMD_SRV(SRPVerifierFile, TAKE1,

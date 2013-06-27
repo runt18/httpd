@@ -518,6 +518,17 @@ static void ssl_init_ctx_tls_extensions(server_rec *s,
         ssl_die(s);
     }
 
+   if (mctx->pks->serverinfo_file) {
+       if (!SSL_CTX_use_serverinfo_file(mctx->ssl_ctx, 
+               mctx->pks->serverinfo_file)) {
+           ap_log_error(APLOG_MARK, APLOG_ERR, 0, s,
+                        "Unable to initialize ServerInfo file "
+                        "(incompatible OpenSSL version?)");
+           ssl_log_ssl_error(SSLLOG_MARK, APLOG_EMERG, s);
+           ssl_die(s);                  
+       }
+   }
+
 #ifdef HAVE_OCSP_STAPLING
     /*
      * OCSP Stapling support, status_request extension

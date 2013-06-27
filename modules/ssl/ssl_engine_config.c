@@ -322,6 +322,9 @@ static void modssl_ctx_cfg_merge_server(modssl_ctx_t *base,
 
     cfgMergeString(pks->ca_name_path);
     cfgMergeString(pks->ca_name_file);
+#ifndef OPENSSL_NO_TLSEXT
+    cfgMergeString(pks->serverinfo_file);
+#endif
 
 #ifdef HAVE_TLS_SESSION_TICKETS
     cfgMergeString(ticket_key->file_path);
@@ -1672,6 +1675,22 @@ const char  *ssl_cmd_SSLStrictSNIVHostCheck(cmd_parms *cmd, void *dcfg, int flag
            "documentation, and build a compatible version of OpenSSL.";
 #endif
 }
+
+#ifndef OPENSSL_NO_TLSEXT
+const char  *ssl_cmd_SSLServerInfoFile(cmd_parms *cmd, void *dcfg, const char *arg)
+{
+    SSLSrvConfigRec *sc = mySrvConfig(cmd->server);
+    const char *err;
+
+    if ((err = ssl_cmd_check_file(cmd, &arg))) {
+        return err;
+    }
+
+    sc->server->pks->serverinfo_file = arg;
+
+    return NULL;
+}
+#endif
 
 #ifdef HAVE_OCSP_STAPLING
 
