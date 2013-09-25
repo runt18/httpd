@@ -1,21 +1,24 @@
-/* A Bison parser, made by GNU Bison 2.7.12-4996.  */
+/* A Bison parser, made by GNU Bison 2.3.  */
 
-/* Bison interface for Yacc-like parsers in C
-   
-      Copyright (C) 1984, 1989-1990, 2000-2013 Free Software Foundation, Inc.
-   
-   This program is free software: you can redistribute it and/or modify
+/* Skeleton interface for Bison's Yacc-like parsers in C
+
+   Copyright (C) 1984, 1989, 1990, 2000, 2001, 2002, 2003, 2004, 2005, 2006
+   Free Software Foundation, Inc.
+
+   This program is free software; you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
-   the Free Software Foundation, either version 3 of the License, or
-   (at your option) any later version.
-   
+   the Free Software Foundation; either version 2, or (at your option)
+   any later version.
+
    This program is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
-   
+
    You should have received a copy of the GNU General Public License
-   along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
+   along with this program; if not, write to the Free Software
+   Foundation, Inc., 51 Franklin Street, Fifth Floor,
+   Boston, MA 02110-1301, USA.  */
 
 /* As a special exception, you may create a larger work that contains
    part or all of the Bison parser skeleton and distribute that work
@@ -26,19 +29,9 @@
    special exception, which will cause the skeleton and the resulting
    Bison output files to be licensed under the GNU General Public
    License without this special exception.
-   
+
    This special exception was added by the Free Software Foundation in
    version 2.2 of Bison.  */
-
-#ifndef YY_AP_EXPR_YY_UTIL_EXPR_PARSE_H_INCLUDED
-# define YY_AP_EXPR_YY_UTIL_EXPR_PARSE_H_INCLUDED
-/* Enabling traces.  */
-#ifndef YYDEBUG
-# define YYDEBUG 0
-#endif
-#if YYDEBUG
-extern int ap_expr_yydebug;
-#endif
 
 /* Tokens.  */
 #ifndef YYTOKENTYPE
@@ -84,40 +77,62 @@ extern int ap_expr_yydebug;
      T_OP_NOT = 293
    };
 #endif
+/* Tokens.  */
+#define T_TRUE 258
+#define T_FALSE 259
+#define T_EXPR_BOOL 260
+#define T_EXPR_STRING 261
+#define T_ERROR 262
+#define T_DIGIT 263
+#define T_ID 264
+#define T_STRING 265
+#define T_REGEX 266
+#define T_REGEX_I 267
+#define T_REGEX_BACKREF 268
+#define T_OP_UNARY 269
+#define T_OP_BINARY 270
+#define T_STR_BEGIN 271
+#define T_STR_END 272
+#define T_VAR_BEGIN 273
+#define T_VAR_END 274
+#define T_OP_EQ 275
+#define T_OP_NE 276
+#define T_OP_LT 277
+#define T_OP_LE 278
+#define T_OP_GT 279
+#define T_OP_GE 280
+#define T_OP_REG 281
+#define T_OP_NRE 282
+#define T_OP_IN 283
+#define T_OP_STR_EQ 284
+#define T_OP_STR_NE 285
+#define T_OP_STR_LT 286
+#define T_OP_STR_LE 287
+#define T_OP_STR_GT 288
+#define T_OP_STR_GE 289
+#define T_OP_CONCAT 290
+#define T_OP_OR 291
+#define T_OP_AND 292
+#define T_OP_NOT 293
+
+
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
 typedef union YYSTYPE
-{
-/* Line 2053 of yacc.c  */
 #line 35 "util_expr_parse.y"
-
+{
     char      *cpVal;
     ap_expr_t *exVal;
     int        num;
-
-
-/* Line 2053 of yacc.c  */
-#line 102 "util_expr_parse.h"
-} YYSTYPE;
-# define YYSTYPE_IS_TRIVIAL 1
+}
+/* Line 1529 of yacc.c.  */
+#line 131 "util_expr_parse.h"
+	YYSTYPE;
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1
+# define YYSTYPE_IS_TRIVIAL 1
 #endif
 
 
-#ifdef YYPARSE_PARAM
-#if defined __STDC__ || defined __cplusplus
-int ap_expr_yyparse (void *YYPARSE_PARAM);
-#else
-int ap_expr_yyparse ();
-#endif
-#else /* ! YYPARSE_PARAM */
-#if defined __STDC__ || defined __cplusplus
-int ap_expr_yyparse (ap_expr_parse_ctx_t *ctx);
-#else
-int ap_expr_yyparse ();
-#endif
-#endif /* ! YYPARSE_PARAM */
 
-#endif /* !YY_AP_EXPR_YY_UTIL_EXPR_PARSE_H_INCLUDED  */
