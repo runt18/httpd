@@ -521,7 +521,7 @@ static void ssl_init_ctx_tls_extensions(server_rec *s,
    if (mctx->pks->serverinfo_file) {
        if (!SSL_CTX_use_serverinfo_file(mctx->ssl_ctx, 
                mctx->pks->serverinfo_file)) {
-           ap_log_error(APLOG_MARK, APLOG_ERR, 0, s,
+           ap_log_error(APLOG_MARK, APLOG_EMERG, 0, s, APLOGNO(2538)
                         "Unable to initialize ServerInfo file "
                         "(incompatible OpenSSL version?)");
            ssl_log_ssl_error(SSLLOG_MARK, APLOG_EMERG, s);
